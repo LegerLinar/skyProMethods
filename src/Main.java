@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
         task1();
@@ -30,6 +32,62 @@ public class Main {
 
     public static void task2 () {
         System.out.println("Задача 2");
-//        ... // Пишем код для задачи 2
+
+        // Вспомните задание 2 из урока «Условные операторы», где вы предлагали пользователю облегченную версию приложения.
+//
+//Текст прошлого задания:
+//
+// Напишите метод, куда подаются два параметра: тип операционной системы (0 — iOS, 1 — Android ) и год выпуска устройства.
+//Если устройство старше текущего года, предложите ему установить облегченную версию.
+//Текущий год можно получить таким способом:
+//int currentYear = LocalDate.now().getYear();
+//Или самим задать значение вручную — ввести в переменную числовое значение.
+//В результате программа должна выводить в консоль сообщение, какую версию приложения
+// (обычную или облегченную) и для какой ОС (Android или iOS) установить пользователю.
+
+
+        String osName = "iOS";
+        int clientDeviceYear = 2015;
+
+
+      offerApp(checkOs(osName), clientDeviceYear);
+
+
+    }
+
+    public static int checkOs (String osName){
+        if (osName.contains("iOS")) {
+            return 0;
+        } else if (osName.contains("Android")) {
+            return 1;
+        } else {
+            throw new RuntimeException("Операционная система устройства не опознана");
+        }
+    }
+
+    public static void offerApp (int existingOs, int deviceYear){
+
+
+
+        int currentYear = LocalDate.now().getYear();
+        boolean isYearActual = deviceYear == currentYear;
+
+        if(existingOs == 0){
+
+            if (!isYearActual) {
+                System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+            } else {
+                System.out.println("Установите приложение для iOS по ссылке");
+            }
+
+        } else if (existingOs == 1) {
+
+            if (!isYearActual) {
+                System.out.println("Установите облегченную версию приложения для Android по ссылке");
+            } else {
+                System.out.println("Установите приложение для Android по ссылке");
+            }
+
+        }
     }
 }
