@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
         task1();
         task2();
+        task3();
     }
 
     public static void task1 () {
@@ -90,4 +91,36 @@ public class Main {
 
         }
     }
+
+
+    public static void task3() {
+        System.out.println("Задача 3");
+//        Возвращаемся к задаче на расчет дней доставки банковской карты.
+//
+//Ваша задача — доработать код, а именно написать метод, который на вход принимает дистанцию и возвращает итоговое количество дней доставки.
+//
+
+        int deliveryDistance = 95;
+
+        calculateDeliveryTime(deliveryDistance);
+    }
+
+    public static void calculateDeliveryTime (int deliveryDistance) {
+        int deliveryTime = 1;
+
+        if (deliveryDistance <= 20) {
+            System.out.println("Потребуется дней: " + deliveryTime);
+        } else if (deliveryDistance <= 60) {
+            deliveryTime += 1;
+            System.out.println("Потребуется дней: " + deliveryTime);
+
+        } else if (deliveryDistance <= 100) {
+            deliveryTime += 2;
+            System.out.println("Потребуется дней: " + deliveryTime);
+        } else {
+            System.out.println("По данному адресу доставка невозможна");
+        }
+
+    }
 }
+
